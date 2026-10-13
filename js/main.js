@@ -1,42 +1,41 @@
-import { dishes } from "./data.js";
+import {komponente } from "./data.js";
 
-console.log(dishes);
+console.log(komponente);
 
 const list = document.querySelector("#list");
 const count = document.querySelector("#count");
 const empty = document.querySelector("#empty");
 const loading = document.querySelector("#loading");
 
-//popis klasa za jeftina jela
 const CHEAP = ["ring-2", "ring-emerald-500"];
 
-// izrada kartice za jelo
-function createCard(dish){
+function createCard(komponenta){
     const card = document.createElement("article");
     
-    card.className = "rounded-lg bg-white p-4 shadow";
-    card.dataset.id = dish.id;
+    card.className = "rounded-lg bg-white p-4 shadow transition-shadow duration-300 overflow-hidden flex flex-col h-full";
+    card.dataset.id = komponenta.id;
 
     const image = document.createElement("img");
-    image.src = dish.image;
-    image.alt = dish.name;
-    image.className = "mb-3 w-full rounded";
+    image.src = komponenta.image;
+    image.alt = komponenta.name;
+    image.className = "mb-3 w-full h-48 object-cover bg-gray-200";
 
     const name = document.createElement("h2");
-    name.className = "font-semibold";
-    name.textContent = dish.name;
+    name.className = "font-bold text-lg mb-2 text-gray-800";
+    name.textContent = komponenta.name;
 
     const price = document.createElement("p");
-    price.textContent = `${dish.price} eur`
+    price.className = "text-xl  text-gray-900 mb-4";
+    price.textContent = `${komponenta.price} eura`;
 
     const link = document.createElement("a");
-    link.href = dish.url;
+    link.href = komponenta.url;
     link.className = "text-blue-700 underline"
-    link.textContent = "Više o jelu";
+    link.textContent = "Detalji o komponenti";
 
     card.append(image,name, price, link);
 
-    if (dish.price < 3 ){
+    if (komponenta.price < 70 ){
         card.classList.add(...CHEAP);
 
     }
@@ -53,15 +52,15 @@ function render(items){
 
     list.append(fragment);
 
-    count.textContent = `Prikazana jela ${items.length}`;
+    count.textContent = `Prikazane komponente ${items.length}`;
 
     empty.classList.toggle("hidden", items.length >0);
 };
 
-const mains = dishes
-    .filter(dish => dish.category === "glavno jelo")
+const mains = komponente
+    .filter(komponenta => komponenta.category === "glavno jelo")
     .sort((a,b) => a.name.localeCompare(b.name));
 
-render(dishes);
+render(komponente);
 
 loading.remove();
