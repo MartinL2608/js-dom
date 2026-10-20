@@ -219,8 +219,20 @@
   .table {
     display: table;
   }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
+  .h-46 {
+    height: calc(var(--spacing) * 46);
+  }
   .h-48 {
     height: calc(var(--spacing) * 48);
+  }
+  .h-50 {
+    height: calc(var(--spacing) * 50);
+  }
+  .h-56 {
+    height: calc(var(--spacing) * 56);
   }
   .h-full {
     height: 100%;

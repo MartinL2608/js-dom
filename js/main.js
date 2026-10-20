@@ -19,7 +19,7 @@ function createCard(komponenta){
     const image = document.createElement("img");
     image.src = komponenta.image;
     image.alt = komponenta.name;
-    image.className = "mb-3 w-full h-48 object-cover bg-gray-200";
+    image.className = "mb-3 w-full h-56 object-cover bg-gray-200";
 
     const name = document.createElement("h2");
     name.className = "font-bold text-lg mb-2 text-gray-800";
@@ -36,11 +36,11 @@ function createCard(komponenta){
 
     card.append(image,name, price, link);
 
-    if (komponenta.price < 70 ){
+    if (komponenta.price < 100 ){
         card.classList.add(...CHEAP);
 
     }
-    if (komponenta.price > 1000 ){
+    if (komponenta.price >= 500 ){
         card.classList.add(...SKUPO);
     }
     return card;
@@ -62,7 +62,7 @@ function render(items){
 };
 
 const mains = komponente
-    .filter(komponenta => komponenta.category === "Gpu")
+    .filter(komponenta => komponenta.category === "Matična ploča")
     .sort((a,b) => a.name.localeCompare(b.name));
 
 render(komponente);
