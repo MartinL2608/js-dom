@@ -25,7 +25,7 @@ export const komponente = [
     },
     {
         id: 4,
-        name: "Corsair Vengeance DDR5 32gb 6400mHz",
+        name: "Corsair Vengeance DDR5 32gb 6400MHz",
         price: 500,
         category: "RAM",
         image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Memory/CMH32GX5M2B6400C32/VENGEANCE_-RGB-32GB-_2x16GB_-DDR5-DRAM-6400MHz-C32-Memory-Kit-_-Black-0.webp",
@@ -67,7 +67,7 @@ export const komponente = [
     },
 
     {
-        id: 6,
+        id: 9,
         name: "NVIDIA GTX 1050 Ti",
         price: 60,
         category: "Gpu",

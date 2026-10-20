@@ -7,7 +7,8 @@ const count = document.querySelector("#count");
 const empty = document.querySelector("#empty");
 const loading = document.querySelector("#loading");
 
-const CHEAP = ["ring-2", "ring-emerald-500"];
+const SKUPO = ["ring-4", "ring-red-500"];
+const CHEAP = ["ring-4", "ring-emerald-500"];
 
 function createCard(komponenta){
     const card = document.createElement("article");
@@ -30,7 +31,7 @@ function createCard(komponenta){
 
     const link = document.createElement("a");
     link.href = komponenta.url;
-    link.className = "text-blue-700 underline"
+    link.className = " mt-auto block w-full text-center text-white bg-blue-500 hover:bg-blue-600 rounded-md font-medium transition-colors"
     link.textContent = "Detalji o komponenti";
 
     card.append(image,name, price, link);
@@ -38,6 +39,9 @@ function createCard(komponenta){
     if (komponenta.price < 70 ){
         card.classList.add(...CHEAP);
 
+    }
+    if (komponenta.price > 1000 ){
+        card.classList.add(...SKUPO);
     }
     return card;
 };
@@ -52,13 +56,13 @@ function render(items){
 
     list.append(fragment);
 
-    count.textContent = `Prikazane komponente ${items.length}`;
+    count.textContent = `Prikazane komponente: ${items.length}`;
 
     empty.classList.toggle("hidden", items.length >0);
 };
 
 const mains = komponente
-    .filter(komponenta => komponenta.category === "glavno jelo")
+    .filter(komponenta => komponenta.category === "Gpu")
     .sort((a,b) => a.name.localeCompare(b.name));
 
 render(komponente);
